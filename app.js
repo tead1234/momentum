@@ -1,6 +1,11 @@
-const h1 = document.querySelector(".hello:first-child h1"); // :다음엔 그냥 이름을 넣어준거
+const loginform = document.querySelector("#login-form"); // #표시는 id란뜻
+const loginInput = loginform.querySelector('input');
+const loginButton = loginform.querySelector('Button');
 
-function handleMouseEnter() {
-        h1.classList.toggle("active");
-}
-h1.addEventListener("click",handleMouseEnter);
+function onLoginButton() {
+    const UserName = loginInput.value;
+    console.log(UserName); // 브라우저가 알아서 하도록 html로 수정할수 있음
+};
+
+
+loginButton.addEventListener("click", onLoginButton);
