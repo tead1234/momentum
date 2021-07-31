@@ -1,11 +1,30 @@
 const loginform = document.querySelector("#login-form"); // #표시는 id란뜻
-const loginInput = loginform.querySelector('input');
-const loginButton = loginform.querySelector('Button');
+const loginInput = loginform.querySelector('#login-form input');
+const greeting = document.querySelector("#greeting")
+const HIDDEN ='hidden';
+const USERNAME_KEY = "username";
 
-function onLoginButton() {
+
+function faintGreeting(username) {
+    greeting.innerText = `hello ${username}`; // 변수랑 스트링 같이 적기    
+    greeting.classList.remove(HIDDEN);
+}
+
+function onLoginButton(event) {
+    event.preventDefault()
     const UserName = loginInput.value;
-    console.log(UserName); // 브라우저가 알아서 하도록 html로 수정할수 있음
+    loginform.classList.add(HIDDEN) // 브라우저가 알아서 하도록 html로 수정할수 있음
+    localStorage.setItem("USERNAME_KEY", UserName);
+    faintGreeting(UserName);
+
 };
 
+loginform.addEventListener("submit",onLoginButton)
 
-loginButton.addEventListener("click", onLoginButton);
+const savedUserName = localStorage.getItem('USERNAME_KEY');
+if(savedUserName ==null) {
+    loginform.classList.remove(HIDDEN);
+    loginform.addEventListener("submit", onLoginButton);
+}else{
+   faintGreeting(savedUserName);
+}
