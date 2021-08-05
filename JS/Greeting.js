@@ -3,13 +3,13 @@ const loginInput = loginform.querySelector('#login-form input');
 const greeting = document.querySelector("#greeting")
 const HIDDEN ='hidden';
 const USERNAME_KEY = "username";
-
+const savedUserName = localStorage.getItem('USERNAME_KEY');
 
 function faintGreeting() {
     const Username = localStorage.getItem('USERNAME_KEY');
     greeting.innerText = `hello ${Username}`; // 변수랑 스트링 같이 적기    
     greeting.classList.remove(HIDDEN);
-}
+};
 
 function onLoginButton(event) {
     event.preventDefault()
@@ -22,10 +22,10 @@ function onLoginButton(event) {
 
 loginform.addEventListener("submit",onLoginButton)
 
-const savedUserName = localStorage.getItem('USERNAME_KEY');
-if(savedUserName ==null) {
+
+if(savedUserName == null) {
     loginform.classList.remove(HIDDEN);
     loginform.addEventListener("submit", onLoginButton);
 }else{
    faintGreeting();
-}
+};
