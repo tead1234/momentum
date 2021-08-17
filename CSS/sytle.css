@@ -1,3 +1,29 @@
 .hidden{
     display: none;
 }
+body{
+    padding-top: 100px;
+}
+#login-form{
+    position: relative;
+    margin-left: 400px;
+}
+#greeting{
+    color: white;
+    margin-left: 700px;
+    margin-top: 100px;
+}
+#bgImage {
+    position:absolute;
+    left:0;
+    top:0;
+	max-width:100%;
+    min-width:1200px;;
+    max-height:1400px;
+    min-height:1200px;
+    z-index:-5;
+    filter: brightness(30%);
+}
+#quote{
+    color: white;
+}
